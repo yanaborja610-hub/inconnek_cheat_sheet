@@ -1,0 +1,743 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inconnek Technician Hub</title>
+
+<style>
+:root {
+    --navy: #08265F;
+    --blue: #0F4CBA;
+    --electric: #29A8FF;
+    --bg: #F3F6FC;
+    --text: #172B4D;
+    --muted: #718096;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* HEADER */
+
+header {
+    color: white;
+    background:
+        radial-gradient(circle at 85% 15%, #29A8FF55, transparent 28%),
+        linear-gradient(125deg, #061B45, #0B347D, #1264B5);
+    padding: 25px 20px 58px;
+}
+
+.header-inner, main, footer {
+    max-width: 1050px;
+    margin: auto;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.brand-mark {
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+    display: grid;
+    place-items: center;
+    background: var(--electric);
+    color: var(--navy);
+    font-size: 24px;
+}
+
+.brand small {
+    display: block;
+    color: #C8DDF8;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.hero {
+    padding-top: 38px;
+}
+
+.eyebrow {
+    display: inline-block;
+    color: #A9DCFF;
+    background: #FFFFFF18;
+    border: 1px solid #FFFFFF2B;
+    border-radius: 30px;
+    padding: 7px 12px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 6vw, 49px);
+    margin: 17px 0 12px;
+}
+
+.hero p {
+    color: #D7E8FF;
+    line-height: 1.6;
+}
+
+/* MAIN */
+
+main {
+    padding: 0 20px 45px;
+    margin-top: -28px;
+}
+
+.search-panel {
+    background: white;
+    padding: 14px;
+    border-radius: 15px;
+    box-shadow: 0 12px 35px #08265F16;
+    margin-bottom: 28px;
+}
+
+#search {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    font-size: 15px;
+    padding: 7px;
+}
+
+/* FILTERS */
+
+.filters {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 5px 0 15px;
+}
+
+.filter {
+    flex-shrink: 0;
+    border: 1px solid #DCE5F1;
+    background: white;
+    color: #52627A;
+    border-radius: 30px;
+    padding: 9px 14px;
+    cursor: pointer;
+}
+
+.filter.active {
+    background: var(--navy);
+    color: white;
+}
+
+/* CARDS */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.card {
+    background: white;
+    border: 1px solid #E1E8F2;
+    border-radius: 14px;
+    padding: 18px;
+    min-height: 175px;
+    text-align: left;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px #08265F14;
+}
+
+.card-icon {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    color: var(--navy);
+    font-size: 16px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.card-link {
+    color: var(--blue);
+    font-size: 11px;
+    font-weight: bold;
+}
+
+/* GUIDE DETAILS */
+
+#detail {
+    display: none;
+}
+
+.back {
+    border: 0;
+    background: transparent;
+    color: var(--blue);
+    font-weight: bold;
+    cursor: pointer;
+    padding: 15px 0;
+}
+
+.detail-banner {
+    color: white;
+    background: linear-gradient(120deg, var(--navy), #1255A5);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 18px;
+}
+
+.detail-banner h2 {
+    font-size: 28px;
+}
+
+.detail-banner p {
+    color: #D8E8FA;
+    line-height: 1.6;
+}
+
+.guide-layout {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 16px;
+}
+
+.steps {
+    display: grid;
+    gap: 11px;
+}
+
+.step {
+    display: flex;
+    gap: 12px;
+    background: white;
+    border: 1px solid #E1E8F2;
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.step-number {
+    min-width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #E4F4FF;
+    color: var(--blue);
+    font-weight: bold;
+}
+
+.step h3 {
+    margin: 2px 0 6px;
+    color: var(--navy);
+    font-size: 14px;
+}
+
+.step p {
+    margin: 0;
+    color: #52627A;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.reminder {
+    background: #FFF7D6;
+    border: 1px solid #F4D36D;
+    border-radius: 13px;
+    padding: 18px;
+    height: fit-content;
+}
+
+.reminder h3 {
+    color: #936000;
+}
+
+.reminder p {
+    color: #59451A;
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+.empty {
+    display: none;
+    background: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 12px;
+    color: var(--muted);
+}
+
+/* FOOTER */
+
+footer {
+    padding: 23px;
+    text-align: center;
+    color: #8A97AA;
+    font-size: 11px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 760px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .guide-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        min-height: 140px;
+    }
+
+    main {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+
+        <div class="brand">
+            <div class="brand-mark">⌁</div>
+            <div>
+                INCONNEK
+                <small>SOLUTIONS CORP.</small>
+            </div>
+        </div>
+
+        <div class="hero">
+            <span class="eyebrow">
+                TECHNICIAN KNOWLEDGE HUB
+            </span>
+
+            <h1>ISP Technician<br>Cheat Sheets</h1>
+
+            <p>
+                Quick guides. Clear procedures.
+                Reliable connections.<br>
+                Lahat ng kailangan ng technician,
+                nasa iisang lugar.
+            </p>
+        </div>
+
+    </div>
+</header>
+
+<main>
+
+<section id="home">
+
+    <div class="search-panel">
+        <input
+            id="search"
+            placeholder="⌕  Maghanap ng guide o procedure..."
+            oninput="renderCards()"
+        >
+    </div>
+
+    <h2>Technical Library</h2>
+    <p>Pumili ng cheat sheet para makita ang instructions.</p>
+
+    <div class="filters" id="filters"></div>
+
+    <div class="cards" id="cards"></div>
+
+    <div class="empty" id="empty">
+        Walang nahanap na cheat sheet.
+    </div>
+
+</section>
+
+<section id="detail">
+
+    <button class="back" onclick="goHome()">
+        ← Back to Technical Library
+    </button>
+
+    <div id="detailContent"></div>
+
+</section>
+
+</main>
+
+<footer>
+    INCONNEK SOLUTIONS CORP. |
+    ISP TECHNICIAN QUICK REFERENCE
+</footer>
+
+<script>
+
+// CHEAT SHEET DATABASE
+
+const sheets = [
+
+{
+    title: "Hierarchy ng Job Order",
+    category: "Work Procedures",
+    icon: "📋",
+    description: "Job order priorities and work procedures.",
+    steps: [
+        ["Walang Internet Repair (NP/LCP)", "Unahin ang customer na walang internet."],
+        ["Repair Back Job", "Unahin ang back job bago ang bagong repair kapag sabay ang dalawang repair."],
+        ["Bagong Repair", "Isunod ang bagong repair pagkatapos ng back job."],
+        ["May Internet Repair", "Ayusin ang slow o intermittent connection."],
+        ["Relocation", "Kung malapit nang matapos, tapusin muna. Kung puwedeng i-reschedule, ipaalam sa customer at unahin ang repair."],
+        ["Installation", "Isunod ang installation ayon sa priority at lokasyon."],
+        ["Technician Visit", "Isunod ang technician visit gaya ng change password."],
+        ["Pullout", "Isunod ang pullout."],
+        ["Collection Reminder", "Isunod ang collection reminder."]
+    ],
+    reminder: "Tapusin muna ang kasalukuyang trabaho kung malapit na itong matapos. Huwag iwanan ang customer sa kalagitnaan ng trabaho maliban kung may emergency."
+},
+
+{
+    title: "Installation Process",
+    category: "Installation",
+    icon: "🛠️",
+    description: "Step-by-step fiber installation guide.",
+    steps: [
+        ["Ihanda ang lahat ng gamit", "Modem/ONU, fiber cable, SC connectors, F-clamp, tags, cable tie, cleaver, at forms."],
+        ["Hanapin ang client", "Tawagan kung kinakailangan upang mahanap ang location."],
+        ["Hanapin ang available NAP port", "Itala ang NAP address at port number."],
+        ["I-check ang reading", "Siguraduhing normal o acceptable ang reading."],
+        ["Planuhin ang cable route", "Planuhin ang ruta mula NAP papunta sa client."],
+        ["Maglatag ng fiber cable", "Gumamit ng F-clamp sa bawat likuan. Iwasan ang matatalim na likuan."],
+        ["Splicing at tagging", "Gawin ang splicing sa NAP at customer side."],
+        ["Activation at forms", "I-configure ang modem, i-activate ang service, at kumpletuhin ang form."],
+        ["I-test kasama ang customer", "Ipa-connect ang device ng customer sa Wi-Fi."],
+        ["Kunin ang installation details", "Kumuha ng pictures, coordinates, NAP details, port number, at readings."],
+        ["Final check", "I-check ang cable, modem placement, at kalinisan ng site."]
+    ],
+    reminder: "Huwag umalis hangga't hindi nakukumpirma ng customer na gumagana ang internet."
+},
+
+{
+    title: "No Internet Pero May Reading",
+    category: "Troubleshooting",
+    icon: "📡",
+    description: "Troubleshooting kapag may optical signal pero walang internet.",
+    steps: [
+        ["I-check ang reading", "I-check ang optical reading ng fiber cable at modem/ONU."],
+        ["I-restart ang modem", "I-restart ang modem at tingnan kung bumalik ang internet."],
+        ["Gumamit ng tester account", "Alamin kung account o configuration ang problema."],
+        ["I-reset at i-reconfigure", "I-reset ang modem at i-configure nang tama."],
+        ["Magpalit ng modem", "Subukang palitan ang modem at i-test muli."],
+        ["I-check ang EPON/GPON", "Tingnan kung kinakailangan ang paglipat mula EPON papuntang GPON."]
+    ],
+    reminder: "Kapag bumalik ang internet, i-check ang optical reading, modem status, configuration, at actual internet connection."
+},
+
+{
+    title: "Slow Internet",
+    category: "Troubleshooting",
+    icon: "🐢",
+    description: "Slow connection troubleshooting guide.",
+    steps: [
+        ["I-check ang reading", "I-check ang optical reading at i-restart ang modem kung normal."],
+        ["I-check ang frequency at devices", "Tingnan ang Wi-Fi frequency, connected devices, at speed test."],
+        ["Ayusin ang Wi-Fi settings", "Ayusin ang channel kung may interference. Palitan ang password kung maraming unknown devices."],
+        ["I-test at i-observe", "I-test muli at obserbahan ang connection nang 10–15 minuto."],
+        ["Customer observation", "Ipa-observe sa customer ang internet sa buong araw at humingi ng feedback."]
+    ],
+    reminder: "I-check ang reading, modem status, Wi-Fi settings, at speed test result bago isara ang troubleshooting."
+},
+
+{
+    title: "Maayos ang Fiber Reading",
+    category: "Troubleshooting",
+    icon: "📶",
+    description: "Kapag normal ang reading pero mabagal pa rin ang internet.",
+    steps: [
+        ["I-check ang common apps", "Tingnan kung updated ang Facebook, TikTok, YouTube, at iba pang apps."],
+        ["I-check ang nearby Wi-Fi", "Tiyaking nakakonekta sa tamang Wi-Fi at tingnan ang interference."],
+        ["I-check ang Wi-Fi frequency", "2.4 GHz: mas malawak ang abot. 5 GHz: mas mabilis sa malapit pero mas mahina kapag maraming pader."],
+        ["I-check ang connected devices", "Tingnan kung ilan ang nakakonekta at kung may sabay-sabay na streaming."],
+        ["I-check ang device ng client", "Mag-test gamit ang ibang phone o laptop."],
+        ["Mag-test bago magpalit ng modem", "Mag-speed test malapit sa modem at gumamit ng LAN cable kung maaari."]
+    ],
+    reminder: "Kung hindi bumuti pagkatapos magpalit ng modem, i-check muli ang configuration at Wi-Fi environment."
+},
+
+{
+    title: "High Reading – Cleaver Check",
+    category: "Fiber Optics",
+    icon: "✂️",
+    description: "Cleaver checking kapag paulit-ulit ang high reading at red LOS.",
+    steps: [
+        ["I-confirm ang issue", "I-record ang current reading bilang reference."],
+        ["Gamitin ang kasalukuyang cleaver", "Linisin ang fiber, mag-splice, at i-record ang fusion test."],
+        ["I-check ang fusion result", "Dapat pantay, halos 90° ang cut, malinis, at walang crack o chip."],
+        ["Suriin ang blade position", "Kung palihis o hindi consistent ang cleave, maaaring ilipat ang blade."],
+        ["I-adjust ang blade", "I-loose ang Screw A at Screw B gamit ang Allen Wrench."],
+        ["Muling mag-splice at mag-test", "I-test muli at i-record ang resulta."],
+        ["Ikumpara ang resulta", "Ihambing ang bagong resulta sa unang test."],
+        ["Final check", "Kung maayos na ang resulta, maaari nang gamitin muli ang cleaver."]
+    ],
+    reminder: "Kung may numbered positions mula 1 hanggang 16, magpatuloy sa susunod na available position kapag hindi na maayos ang cutting edge."
+},
+
+{
+    title: "Paano Magbukas ng LAN Port",
+    category: "Modem Configuration",
+    icon: "🔌",
+    description: "ZTE router DHCP Port Control procedure.",
+    steps: [
+        ["Ikonekta ang router", "Gumamit ng Ethernet cable papunta sa computer."],
+        ["Buksan ang router login page", "I-type ang 192.168.1.1. Para sa Huawei 5v5, gamitin ang 192.168.100.1."],
+        ["Mag-login", "Gamitin ang authorized username at password."],
+        ["Pumunta sa Local Network", "Piliin ang Local Network."],
+        ["Piliin ang LAN", "Pindutin ang LAN sa menu."],
+        ["Buksan ang DHCP Port Control", "Hanapin at buksan ang DHCP Port Control."],
+        ["Piliin ang LAN 4", "Hanapin ang LAN 4 at piliin ang Internet."],
+        ["I-apply ang settings", "Pindutin ang Apply at hintaying lumabas ang confirmation."]
+    ],
+    reminder: "Gumamit lamang ng authorized login credentials."
+},
+
+{
+    title: "Laptop/PC na Hindi Makakonekta",
+    category: "Computer / Network",
+    icon: "💻",
+    description: "Manual IP address configuration.",
+    steps: [
+        ["Ikonekta ang router sa PC", "Gumamit ng Ethernet cable."],
+        ["Buksan ang Control Panel", "I-search ang Control Panel."],
+        ["System and Security", "Piliin ang System and Security."],
+        ["Network and Internet", "Pumunta sa Network and Internet."],
+        ["Network and Sharing Center", "Buksan ang Network and Sharing Center."],
+        ["Change adapter settings", "Hanapin ang Ethernet connection."],
+        ["Buksan ang Properties", "Piliin ang Internet Protocol Version 4 (TCP/IPv4)."],
+        ["I-set ang IP Address", "Gamitin ang 192.168.1.2 o 192.168.100.2 para sa Huawei 5v5."],
+        ["I-save ang settings", "Pindutin ang OK."]
+    ],
+    reminder: "Ibalik sa automatic IP setting kapag tapos na ang kinakailangang access kung iyon ang normal na setting ng computer."
+},
+
+{
+    title: "Pagpapalit ng VFL Laser ng OTDR",
+    category: "Fiber Optics",
+    icon: "🔦",
+    description: "Pagpapalit ng laser tube at final output test.",
+    steps: [
+        ["Patayin ang OTDR", "I-off ang OTDR at tanggalin ang power source."],
+        ["Buksan ang casing", "Alisin ang turnilyo at dahan-dahang buksan."],
+        ["Hanapin ang VFL laser tube", "Hanapin ang VFL section sa likod ng VFL port."],
+        ["Tanggalin ang lumang laser tube", "Tanggalin ang connection at maingat na alisin ang holder."],
+        ["Ikabit ang bagong laser tube", "Ilagay sa parehong posisyon at direksyon ng luma."],
+        ["I-test ang bagong laser tube", "I-activate ang VFL at tingnan ang pulang ilaw."],
+        ["I-check ang alignment", "Tingnan kung maayos ang direksyon ng output."],
+        ["Isara ang OTDR", "Patayin muna ang OTDR at ibalik ang casing."],
+        ["Final test", "Ulitin ang VFL test pagkatapos maisara."]
+    ],
+    reminder: "Huwag direktang tumingin sa laser tube o VFL output habang naka-on. Dapat kapareho ng original ang specification ng replacement laser tube."
+}
+
+];
+
+let activeCategory = "All";
+
+
+// CATEGORY FILTERS
+
+function renderFilters() {
+
+    let categories = [
+        "All",
+        ...new Set(sheets.map(s => s.category))
+    ];
+
+    document.getElementById("filters").innerHTML =
+        categories.map(category => `
+            <button class="filter ${activeCategory === category ? "active" : ""}"
+                onclick="setCategory('${category}')">
+                ${category === "All" ? "All Guides" : category}
+            </button>
+        `).join("");
+}
+
+
+// DISPLAY CHEAT SHEETS
+
+function renderCards() {
+
+    let query = document.getElementById("search")
+        .value.toLowerCase();
+
+    let filtered = sheets.filter(sheet => {
+
+        let matchesCategory =
+            activeCategory === "All" ||
+            sheet.category === activeCategory;
+
+        let searchable = [
+            sheet.title,
+            sheet.category,
+            sheet.description,
+            ...sheet.steps.flat()
+        ].join(" ").toLowerCase();
+
+        return matchesCategory && searchable.includes(query);
+    });
+
+    document.getElementById("cards").innerHTML =
+        filtered.map(sheet => {
+
+            let index = sheets.indexOf(sheet);
+
+            return `
+                <button class="card"
+                    onclick="showSheet(${index})">
+
+                    <div class="card-icon">${sheet.icon}</div>
+
+                    <h3>${sheet.title}</h3>
+
+                    <p>${sheet.description}</p>
+
+                    <span class="card-link">
+                        OPEN GUIDE →
+                    </span>
+
+                </button>
+            `;
+
+        }).join("");
+
+    document.getElementById("empty").style.display =
+        filtered.length ? "none" : "block";
+}
+
+
+// CATEGORY SELECTION
+
+function setCategory(category) {
+
+    activeCategory = category;
+
+    renderFilters();
+    renderCards();
+
+}
+
+
+// OPEN CHEAT SHEET
+
+function showSheet(index) {
+
+    let sheet = sheets[index];
+
+    document.getElementById("home").style.display = "none";
+
+    document.getElementById("detail").style.display = "block";
+
+    let steps = sheet.steps.map((step, i) => `
+
+        <div class="step">
+
+            <div class="step-number">${i + 1}</div>
+
+            <div>
+                <h3>${step[0]}</h3>
+                <p>${step[1]}</p>
+            </div>
+
+        </div>
+
+    `).join("");
+
+    document.getElementById("detailContent").innerHTML = `
+
+        <div class="detail-banner">
+
+            <span>${sheet.category.toUpperCase()}</span>
+
+            <h2>${sheet.icon} ${sheet.title}</h2>
+
+            <p>${sheet.description}</p>
+
+        </div>
+
+        <div class="guide-layout">
+
+            <div class="steps">
+                ${steps}
+            </div>
+
+            <aside class="reminder">
+
+                <h3>💡 Mahalagang Paalala</h3>
+
+                <p>${sheet.reminder}</p>
+
+            </aside>
+
+        </div>
+
+    `;
+
+    window.scrollTo(0, 0);
+
+}
+
+
+// BACK BUTTON
+
+function goHome() {
+
+    document.getElementById("detail").style.display = "none";
+
+    document.getElementById("home").style.display = "block";
+
+    window.scrollTo(0, 0);
+
+}
+
+
+// INITIALIZE
+
+renderFilters();
+renderCards();
+
+</script>
+
+</body>
+</html>
