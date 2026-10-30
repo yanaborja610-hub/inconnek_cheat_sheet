@@ -431,15 +431,15 @@
                 description: "Job order priorities and work procedures.",
 
                 steps: [
-                    ["Walang Internet Repair (NP/LCP)", "Unahin ang customer na walang internet."],
-                    ["Repair Back Job", "Unahin ang back job bago ang bagong repair kapag sabay ang dalawang repair."],
-                    ["Bagong Repair", "Isunod ang bagong repair pagkatapos ng back job."],
-                    ["May Internet Repair", "Ayusin ang slow o intermittent connection."],
-                    ["Relocation", "Kung malapit nang matapos, tapusin muna. Kung puwedeng i-reschedule, ipaalam sa customer at unahin ang repair."],
-                    ["Installation", "Isunod ang installation ayon sa priority at lokasyon."],
-                    ["Technician Visit", "Isunod ang technician visit gaya ng change password."],
-                    ["Pullout", "Isunod ang pullout."],
-                    ["Collection Reminder", "Isunod ang collection reminder."]
+                    ["Walang Internet Repair (NP/LCP)", "Walang internet ang customer at kailangang maibalik kaagad ang serbisyo."],
+                    ["Repair Back Job", "Bagong report ng sira o ibang problema sa existing customer."],
+                    ["Bagong Repair", "Bumalik ang parehong problema matapos ayusin; kailangang tutukan kaagad upang hindi na maulit."],
+                    ["May Internet Repair (Slow/Intermittent Connection)", "May internet pero mabagal, intermittent, o hindi stable ang connection."],
+                    ["Relocation", "Paglilipat ng existing internet connection sa bagong lokasyon."],
+                    ["Installation", "Pagkakabit ng fiber cable, modem, testing at activation ng bagong customer."],
+                    ["Technician Visit", "Mga request tulad ng pagpapalit ng password, Wi-Fi assistance, checking at iba pang service request."],
+                    ["Pullout", "Pag-alis ng linya, modem, at iba pang company equipment."],
+                    ["Collection Reminder", "Pagpunta sa customer para sa colection o payment-related activity."]
                 ],
 
                 reminder: "Tapusin muna ang kasalukuyang trabaho kung malapit na itong matapos. Huwag iwanan ang customer sa kalagitnaan ng trabaho maliban kung may emergency."
@@ -452,17 +452,17 @@
                 description: "Step-by-step fiber installation guide.",
 
                 steps: [
-                    ["Ihanda ang lahat ng gamit", "Modem/ONU, fiber cable, SC connectors, F-clamp, tags, cable tie, cleaver, at forms."],
-                    ["Hanapin ang client", "Tawagan kung kinakailangan upang mahanap ang location."],
-                    ["Hanapin ang available NAP port", "Itala ang NAP address at port number."],
-                    ["I-check ang reading", "Siguraduhing normal o acceptable ang reading."],
-                    ["Planuhin ang cable route", "Planuhin ang ruta mula NAP papunta sa client."],
-                    ["Maglatag ng fiber cable", "Gumamit ng F-clamp sa bawat likuan. Iwasan ang matatalim na likuan."],
-                    ["Splicing at tagging", "Gawin ang splicing sa NAP at customer side."],
-                    ["Activation at forms", "I-configure ang modem, i-activate ang service, at kumpletuhin ang form."],
-                    ["I-test kasama ang customer", "Ipa-connect ang device ng customer sa Wi-Fi."],
-                    ["Kunin ang installation details", "Kumuha ng pictures, coordinates, NAP details, port number, at readings."],
-                    ["Final check", "I-check ang cable, modem placement, at kalinisan ng site."]
+                    ["Ihanda ang lahat ng gamit", "Bago umalis, siguraduhing kumpleto ang lahat ng kailangan sa installation. I-check nang mabuti upang walang maiwang gamit. Naririto ang mga gamit na kailangang dalhin: Modem/ONU, Fiber cable, SC connectors, F-clamp, Tags/Labels, Cable Tie & Cable Clip, Cleaver, at Forms."],
+                    ["Hanapin ang client", "Hanapin ang customer at tawagan kung kinakailangan upang mas mabilis na mahanap ang location. Siguraduhing may sapat na load para sa pakikipag-ugnayan sa client."],
+                    ["Hanapin ang available NAP port", "Kapag nahanap na ang client, hanapin ang pinakamalapit na NAP box na may available na port. Itala ang NAP address at port number at iba pang kinakailangang detalye."],
+                    ["I-check ang reading", "Bago maglatag ng cable, i-check muna ang reading ng available port. Siguraduhing nasa normal/acceptable reading ito. Kung abnormal ang reading, i-check ang kabilang port hanggang sa makahanap ng port na normal/acceptable ang reading."],
+                    ["Planuhin ang cable route", "Kapag okay ang reading, planuhin muna ang dadaanan ng fiber mula NAP papunta sa client. Tingnan ang mga likuan at siguraduhing ligtas ang magiging ruta at hindi makakasagabal o makakasira sa cable ng ibang provider."],
+                    ["Maglatag ng fiber cable", "Simulan ang paglalatag ng cable ayon sa naplanong ruta. Kung may 3 likuan, halimbawa: NAP → Likuan 1 → Likuan 2 → Likuan 3 → Client. Gumamit ng F-clamp sa bawat likuan upang maging secure at maayos ang cable. Huwag sobrang higpitan ang F-clamp at iwasang gumawa ng matatalim na likuan sa fiber."],
+                    ["Splicing at tagging", "Kapag maayos na ang cable route, gawin ang splicing sa NAP at customer side. Pagkatapos, siguraduhing maayos ang splice at lagyan ng tamang tag ang connection."],
+                    ["Activation at forms", "Kapag confirmed na maayos ang fiber connection at okay ang splice, maaari nang simulan ang activation. ● I-connect at i-configure ang modem ayon sa kinakailangang settings ng account. ● I-activate ang internet service at i-check kung successful ang activation. ● I-check ang frequency at optical reading sa loob ng modem at siguraduhing nasa normal na reading. ● I-test ang internet connection upang makumpirma na stable at gumagana ang service. ● Kumpletuhin ang installation form at siguraduhing tama ang customer details, NAP details, port number, readings, at iba pang kinakailangang impormasyon. ● Isulat ang Wi-Fi name at password sa papel at ibigay ito sa client."],
+                    ["I-test kasama ang customer", "Matapos makumpirma na activated at gumagana ang service, ipa-test mismo sa customer ang internet. ● Ipa-connect ang device ng customer sa Wi-Fi at siguraduhing nakakagamit ng internet. ● I-confirm sa customer na maayos at gumagana ang kanilang connection bago magpatuloy sa final documentation."],
+                    ["Kunin ang installation details", "Kapag confirmed na okay ang service, kunin ang lahat ng kinakailangang documentation para sa report. ● Kumuha ng pictures, coordinates, NAP details, port number, optical reading, frequency, at iba pang required information. ● Siguraduhing malinaw ang mga larawan at tama ang lahat ng recorded details."],
+                    ["Final check", "Bago tuluyang umalis sa customer, gawin ang final inspection ng buong installation. ● Siguraduhing maayos ang cable at router/modem placement. ● Iwanang malinis ang site at siguraduhing walang naiwan na gamit. ● Kunin ang installation fee at i-confirm na kumpleto na ang installation."]
                 ],
 
                 reminder: "Huwag umalis hangga't hindi nakukumpirma ng customer na gumagana ang internet."
