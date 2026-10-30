@@ -36,39 +36,37 @@
             padding: 25px 20px 58px;
         }
 
-        .header-inner, main, footer {
-            max-width: 1050px;
-            margin: auto;
-        }
+        .header-inner {
+			max-width: none;
+			width: 100%;
+			margin: 0;
+			padding-left: 151px;
+			padding-right: 20px;
+		}
 
+		main, footer {
+			max-width: 1050px;
+			margin: auto;
+		}
+		
         .brand {
-            display: flex;
-            align-items: center;
-            gap: 11px;
-            font-weight: bold;
-            letter-spacing: 1.5px;
-        }
+			display: block;
+			width: 164px;
+			height: 42px;
+		}
 
-        .brand-mark {
-            width: 42px;
-            height: 42px;
-            border-radius: 13px;
-            display: grid;
-            place-items: center;
-            background: var(--electric);
-            color: var(--navy);
-            font-size: 24px;
-        }
-
-        .brand small {
-            display: block;
-            color: #C8DDF8;
-            font-size: 9px;
-            letter-spacing: 2px;
-        }
+		.brand img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+			object-position: left center;
+		}
 
         .hero {
             padding-top: 38px;
+			padding-left: 151px;
+			margin-left: 0;
         }
 
         .eyebrow {
@@ -287,6 +285,7 @@
             border-radius: 12px;
             color: var(--muted);
         }
+		
 
         /* FOOTER */
 
@@ -327,8 +326,8 @@
                 font-size: 34px;
             }
         }
-
-        @media (max-width: 768px) {
+		
+		@media (max-width: 768px) {
 			.hero {
 				padding: 40px 24px 20px;
 			}
@@ -347,13 +346,12 @@
         <div class="header-inner">
 
             <div class="brand">
-                <div class="brand-mark">⌁</div>
-
-                <div>
-                    INCONNEK
-                    <small>SOLUTIONS CORP.</small>
-                </div>
-            </div>
+				<img
+					src="Inconnek_Logo_Transparent.png"
+					alt="Inconnek Solutions Corp."
+				>
+			</div>
+        </div>
 
             <div class="hero">
                 <span class="eyebrow">
